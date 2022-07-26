@@ -13,6 +13,12 @@ setup(
     install_requires=[
     ],
 
+    entry_points={
+        'gwf.backends': [
+            'torque = gwf_torque_backend:Torque',
+        ]
+    },
+
     author='Michael Knudsen',
     author_email='michaelk@clin.au.dk',
     license='MIT'
