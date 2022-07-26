@@ -1,5 +1,5 @@
-from gwf.backends import Backend
+from gwf.backends.base import PbsLikeBackendBase
 
 
-class TorqueBackend(Backend):
+class TorqueBackend(PbsLikeBackendBase):
     pass
