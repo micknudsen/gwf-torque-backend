@@ -15,7 +15,7 @@ setup(
 
     entry_points={
         'gwf.backends': [
-            'torque = gwf_torque_backend.torque:Torque',
+            'torque = gwf_torque_backend.torque:TorqueBackend',
         ]
     },
 

@@ -1,5 +1,5 @@
 from gwf.backends import Backend
 
 
-class Torque(Backend):
+class TorqueBackend(Backend):
     pass
