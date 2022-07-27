@@ -68,6 +68,8 @@ class TorqueBackend(PbsLikeBackendBase):
         out.append(f'#PBS -o {self.log_manager.stdout_path(target)}')
         out.append(f'#PBS -e {self.log_manager.stderr_path(target)}')
 
+        out.append(f'cd {target.working_dir}')
+
         out.append(ensure_trailing_newline(target.spec))
 
         return '\n'.join(out)
