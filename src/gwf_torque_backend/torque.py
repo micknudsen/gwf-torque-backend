@@ -49,7 +49,7 @@ class TorqueBackend(PbsLikeBackendBase):
         args = []
         if dependencies:
             args.append('-W afterok:{}'.format(':'.join(dependencies)))
-        return call('sbatch', *args, input=script)
+        return call('qsub', *args, input=script)
 
     def compile_script(self, target):
 
