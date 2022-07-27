@@ -49,11 +49,11 @@ class TorqueBackend(PbsLikeBackendBase):
         out = []
 
         out.append(f'#PBS -N {target.name}')
-        out.append(f'#PBS -W group_list={target.account}')
-        out.append(f'#PBS -A {target.account}')
-        out.append(f'#PBS -l nodes=1:ppn={target.cores}')
-        out.append(f'#PBS -l mem={target.memory}')
-        out.append(f'#PBS -l walltime={target.walltime}')
+        out.append(f'#PBS -W group_list={target.options["account"]}')
+        out.append(f'#PBS -A {target.options["account"]}')
+        out.append(f'#PBS -l nodes=1:ppn={target.options["cores"]}')
+        out.append(f'#PBS -l mem={target.options["memory"]}')
+        out.append(f'#PBS -l walltime={target.options["walltime"]}')
 
         out.append(ensure_trailing_newline(target.spec))
 
