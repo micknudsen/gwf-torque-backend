@@ -51,6 +51,10 @@ class TorqueBackend(PbsLikeBackendBase):
             args.append('-W afterok:{}'.format(':'.join(dependencies)))
         return call('qsub', *args, input=script)
 
+    @retry(on_exc=BackendError)
+    def call_cancel_command(self, job_id):
+        return call('qdel', job_id)
+
     def compile_script(self, target):
 
         out = []
