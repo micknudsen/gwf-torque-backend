@@ -37,6 +37,13 @@ class TorqueBackend(PbsLikeBackendBase):
             job_states[job_id] = job_state
         return job_states
 
+    @retry(on_exc=BackendError)
+    def call_submit_command(self, script, dependencies):
+        args = []
+        if dependencies:
+            args.append('-W afterok:{}'.format(':'.join(dependencies)))
+        return call('sbatch', *args, input=script)
+
     def compile_script(self, target):
 
         out = []
