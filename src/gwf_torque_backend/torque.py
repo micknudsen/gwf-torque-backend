@@ -14,6 +14,15 @@ class TorqueBackend(PbsLikeBackendBase):
         return call('qstat', '-f', '--xml')
 
     def parse_queue_output(self, stdout):
+        """
+        C	Job is completed after having run.
+        E	Job is exiting after having run.
+        H	Job is held.
+        Q	Job is queued, eligible to run or routed.
+        R	Job is running.
+        T	Job is being moved to new location.
+        W	Job is waiting for its execution time (-a option) to be reached.
+        """
         job_states = {}
         root = ElementTree.fromstring(stdout)
         for job in root.iter('Job'):
