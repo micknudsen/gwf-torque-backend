@@ -4,7 +4,7 @@ from gwf.backends.base import PbsLikeBackendBase, Status
 from gwf.backends.exceptions import BackendError
 from gwf.backends.utils import call
 
-from gwf.utils import retry
+from gwf.utils import ensure_trailing_newline, retry
 
 
 class TorqueBackend(PbsLikeBackendBase):
@@ -36,3 +36,18 @@ class TorqueBackend(PbsLikeBackendBase):
                 job_state = Status.UNKNOWN
             job_states[job_id] = job_state
         return job_states
+
+    def compile_script(self, target):
+
+        out = []
+
+        out.append(f'#PBS -N {target.name}')
+        out.append(f'#PBS -W group_list={target.account}')
+        out.append(f'#PBS -A {target.account}')
+        out.append(f'#PBS -l nodes=1:ppn={target.cores}')
+        out.append(f'#PBS -l mem={target.memory}')
+        out.append(f'#PBS -l walltime={target.walltime}')
+
+        out.append(ensure_trailing_newline(target.spec))
+
+        return '\n'.join(out)
