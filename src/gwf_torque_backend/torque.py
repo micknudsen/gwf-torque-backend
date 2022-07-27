@@ -9,6 +9,13 @@ from gwf.utils import ensure_trailing_newline, retry
 
 class TorqueBackend(PbsLikeBackendBase):
 
+    option_defaults = {
+        'cores': 1,
+        'memory': '1gb',
+        'walltime': '01:00:00',
+        'account': None
+    }
+
     @retry(on_exc=BackendError)
     def call_queue_command(self):
         return call('qstat', '-f', '--xml')
