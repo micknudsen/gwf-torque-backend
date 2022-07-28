@@ -48,7 +48,7 @@ class TorqueBackend(PbsLikeBackendBase):
     def call_submit_command(self, script, dependencies):
         args = []
         if dependencies:
-            args.append('-W afterok:{}'.format(':'.join(dependencies)))
+            args.append('-W depend=afterok:{}'.format(':'.join(dependencies)))
         return call('qsub', *args, input=script)
 
     @retry(on_exc=BackendError)
