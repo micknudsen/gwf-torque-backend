@@ -33,7 +33,7 @@ class TorqueBackend(PbsLikeBackendBase):
         job_states = {}
         root = ElementTree.fromstring(stdout)
         for job in root.iter('Job'):
-            job_id = job.find('Job_Id').text
+            job_id = job.find('Job_Id').text.split('.')[0]
             state = job.find('job_state').text
             if state == 'R':
                 job_state = Status.RUNNING
