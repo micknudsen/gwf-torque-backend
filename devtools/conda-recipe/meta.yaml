@@ -1,9 +1,9 @@
 package:
   name: gwf-torque-backend
-  version: '0.0'
+  version: '0.1'
 
 source:
-  git_rev: v0.0
+  git_rev: v0.1
   git_url: git@github.com:micknudsen/gwf-torque-backend.git
 
 build:
