@@ -1,0 +1,25 @@
+package:
+  name: gwf-torque-backend
+  version: '0.0'
+
+source:
+  git_rev: v0.0
+  git_url: git@github.com:micknudsen/gwf-torque-backend.git
+
+build:
+  noarch: python
+  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
+  number: 0
+
+requirements:
+  host:
+    - pip
+    - python >=3.6
+  run:
+    - gwf >=1.7.1
+    - python >=3.6
+
+about:
+  home: https://github.com/micknudsen/gwf-torque-backend
+  license: MIT
+  summary: Use TORQUE as backend for your gwf workflow
