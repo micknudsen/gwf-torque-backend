@@ -1,6 +1,6 @@
 # gwf-torque-backend
 
-This plugin adds support the TORQUE backend in the [gwf](http://gwf.readthedocs.io/en/latest/) workflow mananger. The simplest way to install it is by using conda:
+This plugin adds support the TORQUE backend in the [gwf](https://gwf.app) workflow mananger. The simplest way to install it is by using conda:
 
 ```
 $ conda install -c micknudsen gwf-torque-backend
