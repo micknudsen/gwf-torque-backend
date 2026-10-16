@@ -11,6 +11,9 @@ setup(
     python_requires='>=3.6',
 
     install_requires=[
+        'gwf>=1.7.1',
+        # gwf 1.x imports pkg_resources at runtime.
+        'setuptools<81',
     ],
 
     entry_points={
