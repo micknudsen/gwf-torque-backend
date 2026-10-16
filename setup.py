@@ -13,7 +13,7 @@ setup(
     install_requires=[
         'gwf>=1.7.1',
         # gwf 1.x imports pkg_resources at runtime.
-        'setuptools<81',
+        'setuptools<85',
     ],
 
     entry_points={
