@@ -9,6 +9,8 @@ updates:
 
   - package-ecosystem: pip
     directory: /
+    ignore:
+      - dependency-name: setuptools
     schedule:
       interval: weekly
     assignees:
